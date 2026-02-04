@@ -12,7 +12,53 @@ sources:
      tables:
        - name: sales
          identifier: raw_gz_sales
+         description: Sales de Greenweez.
+         loaded_at_field: date_date
+         
+         columns:
+            - name: date_date
+              description: Date
+            
+            - name: orders_id
+              description: Identification unique orders
+
+            - name: product_id
+              description: Identification unique product
+
+            - name: revenue
+              description: Revenue
+
+            - name: quantity
+              description: Quantity
        - name: product
          identifier: raw_gz_product
+         description: Product de Greenweez.
+
+         columns:
+            - name: product_id
+              description: Identification unique product
+              tests:
+                - not_null
+                - unique
+
+            - name: purchase_price
+              description: Prix d'achat
        - name: ship
          identifier: raw_gz_ship
+         description: Ship de Greenweez.
+
+         columns:
+          - name: orders_id
+            description: Identification unique orders
+            tests:
+              - not_null
+              - unique
+            
+          - name: shipping_fee
+            description: frais de livraison
+
+          - name: log_cost
+            description: Coût
+
+          - name: ship_cost
+            description: Coût
