@@ -14,7 +14,7 @@ sources:
          identifier: raw_gz_sales
          description: Sales de Greenweez.
          loaded_at_field: date_date
-         
+
          columns:
             - name: date_date
               description: Date
@@ -33,7 +33,7 @@ sources:
        - name: product
          identifier: raw_gz_product
          description: Product de Greenweez.
-
+         loaded_at_field: product_id
          columns:
             - name: product_id
               description: Identification unique product
@@ -46,6 +46,7 @@ sources:
        - name: ship
          identifier: raw_gz_ship
          description: Ship de Greenweez.
+         loaded_at_field: orders_id
 
          columns:
           - name: orders_id
