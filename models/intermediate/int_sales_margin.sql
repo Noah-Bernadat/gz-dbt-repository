@@ -12,3 +12,4 @@ left join {{ source('stg_gz_raw_data', 'product') }} p
 
 
 
+
