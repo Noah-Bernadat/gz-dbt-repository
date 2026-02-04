@@ -8,8 +8,7 @@ select
     s.quantity * p.purchase_price as purchase_cost,
     s.revenue - (s.quantity * p.purchase_price) as margin
 from {{ ref('stg_gz_raw_data__sales') }} As s
-left join {{ ref('stg_gz_raw_data__product') }} As p
-using (products_id)   
+left join {{ ref('stg_gz_raw_data__product') }} As p  
     on s.product_id = p.products_id;
 
 
