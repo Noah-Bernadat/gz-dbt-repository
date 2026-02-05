@@ -1,15 +1,16 @@
-select
+SELECT
+    s.product_id,
     s.date_date,
     s.orders_id,
-    s.product_id,
-    s.quantity,
     s.revenue,
+    s.quantity,
     p.purchase_price,
-    s.quantity * p.purchase_price as purchase_cost,
-    s.revenue - (s.quantity * p.purchase_price) as margin
-from {{ ref('stg_gz_raw_data__sales') }} As s
-left join {{ ref('stg_gz_raw_data__product') }} As p  
-    on s.product_id = p.products_id;
+    ROUND(s.quantity * p.purchase_price, 2) AS purchase_cost,
+    ROUND(s.revenue - (s.quantity * p.purchase_price), 2) AS margin
+FROM {{ ref('stg_gz_raw_data__sales') }} AS s
+LEFT JOIN {{ ref('stg_gz_raw_data__product') }} AS p
+    ON p.products_id = s.product_id
+
 
 
 
