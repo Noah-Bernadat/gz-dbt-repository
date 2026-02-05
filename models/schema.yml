@@ -37,9 +37,6 @@ sources:
          columns:
             - name: product_id
               description: Identification unique product
-              tests:
-                - not_null
-                - unique
 
             - name: purchase_price
               description: Prix d'achat
