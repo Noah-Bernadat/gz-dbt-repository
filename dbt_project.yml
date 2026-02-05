@@ -37,6 +37,21 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   my_new_project:
-    # Applies to all files under models/example/
-    example:
-      +materialized: table
+
+    # Raw layer (sources brutes)
+    raw:
+      +materialized: view   # Les modèles raw restent des vues pour économiser du stockage
+
+    # Staging layer
+    stg:
+      +materialized: view   # Les modèles staging restent des vues
+
+    # Intermediate layer
+    int:
+      +materialized: view   # Les modèles intermédiaires restent des vues
+
+    # Mart layer
+    mart:
+      +materialized: table  # Tous les modèles mart seront des tables par défaut
+      finance:
+        +schema: finance
