@@ -53,3 +53,5 @@ models:
     # Mart layer
     mart:
       +materialized: table  # Tous les modèles mart seront des tables par défaut
+      finance:
+        +schema: finance
