@@ -1,9 +1,3 @@
-{{ 
-  config(
-    materialized='table'
-  ) 
-}}
-
 WITH orders_with_revenue AS (
     SELECT
         io.date_date,
